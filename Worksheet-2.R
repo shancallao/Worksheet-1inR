@@ -115,7 +115,93 @@ data
 
 
 #Number 8:
+
+TopCelebrity <- data.frame (
+  PowerRanking = 1:25,
+  CelebrityName = c("Tom Cruise" , "Rolling Stones", "Oprah Winfrey", "U2","Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K Rowling", "Bradd Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Lenon", "Celine Dion", "Kobe Bryant"),
+  Pay = c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+)
+TopCelebrity
+
+#b
+NewRanking <- replace(PowerRanking, 19, 15)
+NewRanking
+NewPay <- replace(Pay, 19, 90)
+NewPay 
+
+Newtopceleb <- data.frame (
+  PowerRanking = NewRanking, CelebrityName, Pay = NewPay)
+Newtopceleb
+
+
+#c
+# Install and load the 'writexl' library for writing Excel files
+install.packages("writexl")
+library(writexl)
+write_xlsx(TopCelebrity, path = "PowerRanking.xlsx")
+write.csv(TopCelebrity, file = "PowerRanking.csv", row.names = FALSE)
+
+#d
+subset_data <- TopCelebrity[10:20, ]
+save(subset_data, file = "Ranks.RData")
+print(subset_data)
+
+#e. This script will create an RData file named "Ranks.RData" containing the subset of rows 10 to 20 from the original data frame.
+
+
 #Number 9:
+
+#a.
+library(readxl)
+ExcelDta <- read_excel("hotels-vienna.xlsx")
+ExcelDta
+
+#b.
+dimensions <- dim(ExcelDta)
+dimensions
+
+#c.
+selected_columns <- ExcelDta[, c("country", "neighbourhood", "price", "stars", "accommodation_type", "rating")]
+head(selected_columns, n = nrow(selected_columns))
+
+#d.
+save(selected_columns, file = "new.RData")
+
+#e.
+load("new.RData")
+head(selected_columns)
+tail(selected_columns)TopCelebrity <- data.frame (
+  PowerRanking = 1:25,
+  CelebrityName = c("Tom Cruise" , "Rolling Stones", "Oprah Winfrey", "U2","Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K Rowling", "Bradd Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Lenon", "Celine Dion", "Kobe Bryant"),
+  Pay = c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+)
+TopCelebrity
+
+#b
+NewRanking <- replace(PowerRanking, 19, 15)
+NewRanking
+NewPay <- replace(Pay, 19, 90)
+NewPay 
+
+Newtopceleb <- data.frame (
+  PowerRanking = NewRanking, CelebrityName, Pay = NewPay)
+Newtopceleb
+
+
+#c
+# Install and load the 'writexl' library for writing Excel files
+install.packages("writexl")
+library(writexl)
+write_xlsx(TopCelebrity, path = "PowerRanking.xlsx")
+write.csv(TopCelebrity, file = "PowerRanking.csv", row.names = FALSE)
+
+#d
+subset_data <- TopCelebrity[10:20, ]
+save(subset_data, file = "Ranks.RData")
+print(subset_data)
+
+#e. This script will create an RData file named "Ranks.RData" containing the subset of rows 10 to 20 from the original data frame.
+
 
 
 #Number 10:
